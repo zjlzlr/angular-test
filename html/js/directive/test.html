@@ -1,0 +1,19 @@
+<style>
+    .test1{
+        color: blue;
+    }
+</style>
+{{test}}
+<div ng-class="{'test1':test=='1'}">
+  <span > 指令=======================</span>
+    <div ng-transclude></div>
+    <div style='border:1px solid red'>
+        <div>指令子页面</div>
+        <div ng-transclude></div>
+        父页面单向修改子页面值 ：
+        <input ng-model='superName'>{{superName}}<br/>
+        父子页面双向绑定：
+        <input ng-model='childName'>{{childName}}<br>
+       <a href='javascript:void(0)' ng-click='testFunc()'>父方法</a>
+    </div>
+</div>

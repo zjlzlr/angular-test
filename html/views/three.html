@@ -1,0 +1,114 @@
+<style>
+
+    #test1 {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        z-index: 1;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        background: #000;
+        color: #FFF;
+        cursor: move;
+    }
+    #test1:after {
+        content: 'absolute';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        line-height: 1em;
+        text-align: left;
+        color: #888;
+        font-size: 12px;
+    }
+
+    #test2 {
+        position: fixed;
+        left: 120px;
+        top: 10px;
+        z-index: 1;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        background: #000;
+        cursor: move;
+    }
+    #test2:after {
+        content: 'fixed';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        line-height: 1em;
+        text-align: left;
+        color: #888;
+        font-size: 12px;
+    }
+    #test3 {
+        position: fixed;
+        left:100px;
+        top:200px;
+        z-index: 999;
+        cursor: move;
+    }
+    #test3:after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        line-height: 1em;
+    }
+
+    #test12 {
+        position: fixed;
+        left: 120px;
+        top: 450px;
+        z-index: 1;
+        width: 90px;
+        height: 90px;
+        text-align: center;
+        line-height: 40px;
+        background: #000;
+        border: 5px solid #888;
+    }
+    #test12:after {
+        content: 'fixed';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        line-height: 1em;
+        text-align: left;
+        color: #888;
+        font-size: 12px;
+    }
+    #test12-header {
+        height: 30px;
+        background: #5da5e6;
+        cursor: move;
+    }
+</style>
+<div id="threepage" style="width: 800px;height: 500px;background-color: #5da5e6">
+
+    这是three页{{name}}
+   angular ui select: <ui-select ng-model="ccPerson.selected" class="col-md-2">
+        <ui-select-match placeholder="请输入">{{$select.selected.name}}</ui-select-match>
+        <ui-select-choices repeat="item in cc_list">
+            {{item.name}}
+        </ui-select-choices>
+    </ui-select>
+
+    angular-bootstrap3-typeahead:{{statesName}}
+    <input type="text" bs3-showHintOnFocus="true" bs3-displayText="names" bs3-typeahead bs3-source="states" ng-model="statesName"/>
+<!--
+    <input type="text" bs3-showHintOnFocus="all" bs3-typeahead bs3-source="states" ng-model="statesObj" />
+-->
+   1. <input type="text" class="typeahead" bs3-showHintOnFocus="false" bs3-items="all"
+           bs3-afterSelect ="get_brand" bs3-displayText="brand_name"
+           bs3-typeahead bs3-source="brandList" ng-model="car.brand_name"/>
+    <br/>============
+    {{car.brand_name}}
+   2. <input type="text" ng-click="clear()" class="typeahead" bs3-showHintOnFocus="false" bs3-items="all"
+           bs3-afterSelect ="get_brand" bs3-displayText="brand_name"
+           bs3-typeahead bs3-source="getBrandList" ng-model="car.brand_name"/>
+</div>

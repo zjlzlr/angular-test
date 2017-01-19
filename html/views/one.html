@@ -1,0 +1,109 @@
+<style>
+    div{
+        margin-top:10px;
+        padding: 5px;
+    }
+    .test{
+        color:red;
+
+    }
+</style>
+
+<div>
+    <span ng-class="{'test':test==1}">aaaaaaaaaaaaaa</span>
+<div id="onepage">
+    <input type="input" ng-model="test1" max="10" min="1" ng-change="change_number(this)">
+    <a href="javascript:void(0)" ng-click="openModal()">弹框测试1</a>
+    <div>
+       1. select初始化赋值：使用了ng-repeat会形成一个新的子作用域，需要单独给select赋选中值
+        <div>{{current.selectName1}}
+            <select ng-model="current.selectName1">
+                <!--<option value="">全部</option>-->
+                <option ng-value="item.id"  ng-selected="current.selectName1"  ng-repeat="item in selects">{{item.name}}</option>
+            </select>
+
+            <select ng-model="current.selectName1" ng-options="item.id as item.name for item in selects"></select>
+
+            <select ng-model="current.selectName1" convert-to-number>
+                <!--<option value="">全部</option>-->
+                <option value="1">b1</option>
+                <option value="2">b2</option>
+                <option value="3">b3</option>
+            </select>
+        </div>
+    </div>
+    <div>
+    2.checkbox需设不同的ng-model
+    </div>
+    <div>
+        <input type="checkbox" ng-model="test1" ng-change="current.checkbox1=test1?2:''">checked:{{current.checkbox1}}
+        <input type="checkbox" ng-model="current.checkbox2">checked:{{current.checkbox2}}
+    </div>
+     ng-if子作用域的数据若绑定在父作用域的对象上，在父作用域可以直接获取到，否则定义一个字符串获取不到
+    <div>
+        <span ng-if="true">
+            <input type="checkbox" ng-model="current.checkbox3" >子作用域{{current.checkbox3}}
+             <input type="checkbox" ng-model="checkbox4" >子作用域{{checkbox4}}
+        </span>
+        <input type="button" value="测试ngif" ng-click="iftest()">
+    </div>
+    <div>
+     3.radio设置相同的ng-model
+    </div>
+    <div>无循环radio checked:{{current.radio1}}
+        <label  class="radio-inline" >
+            <input  type="radio" ng-model='current.radio1' value="1"> 未上门
+        </label>
+        <label  class="radio-inline" >
+            <input  type="radio" ng-model='current.radio1' value="2" ng-checked="true"> 未上门
+        </label>
+        <label  class="radio-inline" >
+            <input  type="radio" ng-model='current.radio1' value="3"> 未上门
+        </label>
+    </div>
+    <div>有循环radio checked:{{current.radio2}}
+        <span ng-repeat="item in radioList">
+            <input type="radio" ng-model="current.radio2" value="{{item.id}}">{{item.name}}
+        </span>
+        <input type="button" value="获取radio值" ng-click="getRadio()">
+         需设置一个有对象的相同值(不能设置item.checked,同一组radio ng-model不同)
+    </div>
+    <div>
+        4.父页面单向绑定子页面:
+        <input type="text" ng-model="superName">{{superName}}
+    </div>
+    <div>
+        5.父子页面相互绑定:
+        <input type="text" ng-model="childName">{{current.childName}}
+    </div>
+    <div>
+        6.原生js方法调用，current.clickName：{{current.clickName}}
+        <input type="button" value="click" id="testClick">
+    </div>
+
+   <!-- a:childName必需放在对象下才能实现双向绑定
+    b:方法参数必顺是args,双向绑定数据必顺在对象上-->
+    <one-directives call_parent="call_parent(args)" test="{{'1'}}" super-name="{{superName}}" child-name="childName">
+        嵌套作用域原型继承父作用域：{{superName}}
+    </one-directives>
+
+
+    <div>
+        <a href="#/one/two">嵌套入第二个页面</a>&nbsp;&nbsp;
+        <a href="javascript:void(0)" ng-click="go('one.three')">嵌套入第三个页面</a>
+    </div>
+</div>
+    <div ui-view/>
+    <div id="modal1" class="rrc-modal">
+        <div class="modal-header">
+            ccccc
+        </div>
+        <div class="modal-body">
+            <p>ddddd <a href="#" ng-click="closeModal($event)">closing the window.</a></p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="closeModal($event)">取消</button>
+        </div>
+    </div>
+
+</div>

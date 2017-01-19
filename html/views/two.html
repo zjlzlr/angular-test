@@ -1,0 +1,54 @@
+<div style="background: yellow;width:800px;height:500px;" id="twopage">
+    <span ng-click="setChange({})">{{second.dataSelected}}===={{item}}</span>
+    <input list="cars" ng-model="dataSelected1" />
+    <datalist id="cars" onchange="setChange()">
+            <option ng-repeat="item in datalists"
+                    value="{{item.id}}" >{{item.name}}
+            </option>
+    </datalist>
+
+    <!--<label for="country">Country:{{test1}}</label>
+    <datalist id="country_list" ng-model="teest1" ng-change="">
+        <select name="country" ng-model="teest1">
+            <option>Afghanistan</option>
+            <option>Åland Islands</option>
+            <option>Albania</option>
+            <option>Algeria</option>
+            <option>American Samoa</option>
+        </select>
+        If other, please specify:
+    </datalist>
+    <input type="text" name="country" id="country" list="country_list">-->
+<br/>
+    这是TWO页：{{name}}-----
+    <a href="javascript:void(0)" ng-click="openModal()">弹框测试</a>
+    <!--<div id="onemodal" class="rrc-modal">
+        <p>If you do this, be sure to provide the user with an alternate method of <a href="#" ng-click="closeModal($event)">closing the window.</a></p>
+    </div>-->
+    <div id="onemodal" class="rrc-modal" style="width: 500px;height: 300px;">
+        <div class="modal-header">
+            aaaa{{name}}aaa
+        </div>
+        <div class="modal-body">
+            <p>If you do this, be sure to provide the user with an alternate method of <a href="#"
+                                                                                          ng-click="closeModal($event)">closing
+                the window.</a></p>
+            <a href="javascript:void(0)" ng-click="openModal2()">example1</a><br/>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="closeModal($event)">取消</button>
+        </div>
+    </div>
+
+    <div id="twomodal" class="rrc-modal">
+        <div class="modal-header">
+            bbb{{name}}bbb
+        </div>
+        <div class="modal-body">
+            <p>vvvvvvvvvvvvvvvvvvvvvv <a href="#" ng-click="closeModal($event)">closing the window.</a></p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="closeModal($event)">取消</button>
+        </div>
+    </div>
+</div>
