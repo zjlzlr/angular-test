@@ -1,5 +1,5 @@
-define(['ngAMD','uiRouter', 'select','sanitize','angulardrag','bootstrapTypeahead','typeahead'],function(ngAMD,uiRouter){
-    var app = angular.module('myApp',["ui.router",'ui.select','ngSanitize','angular-drag', 'bootstrap3-typeahead']);
+define(['ngAMD','uiRouter', 'angularMocks', 'select','sanitize','angulardrag','bootstrapTypeahead','typeahead'],function(ngAMD,uiRouter){
+    var app = angular.module('myApp',['ngMock', "ui.router",'ui.select','ngSanitize','angular-drag', 'bootstrap3-typeahead']);
     app.run(function($rootScope){
         //模板解析前判断
         $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
