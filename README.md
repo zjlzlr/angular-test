@@ -5,7 +5,7 @@
 # 基础框架
    angular + angularui + require + bootstrap
 # 运行
-  ## 把项目加入webstorm
-  ## 右击html/index.html-->open in browser-->chorme
+  - 把项目加入webstorm
+  - 右击html/index.html-->open in browser-->chorme
 # 测试运行
-  ## 到karma.conf.js目录下运行karma start
+  - 到karma.conf.js目录下运行karma start
