@@ -13,9 +13,11 @@
   "license": "ISC",
   "dependencies": {
     "angular-mocks": "1.5.x",
+    "istanbul": "^0.4.5",
     "jasmine-core": "^2.6.4",
     "jasmine-jquery": "^2.1.1",
     "karma": "^1.7.0",
+    "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-read-json": "^1.1.0",

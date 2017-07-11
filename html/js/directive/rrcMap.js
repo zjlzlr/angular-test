@@ -26,4 +26,4 @@ define(["app"],function(app) {
             "<a href='javascript:void(0)' ng-click='testFunc()'>父方法</a></div>"
         }
     })
-}
+})
