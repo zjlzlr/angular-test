@@ -14,13 +14,23 @@ function (app, angularAMD, testDirective_html) {
 
         it('test message attribute', function () {
             var id_string = 'Qy3marXUsk';
-            elem = angular.element('<test-directive message="' + id_string + '"></test-directive>');
+            $scope.cities = ['aa', 'bb'];
+            $scope.appoint_order = {name: 'zlr', age: 2};
+            $scope.getMap = function(args){
+                console.log(args);
+            }
+            elem = angular.element('<test-directive ng-model="appoint_order" margin-top="10" message="' + id_string + '" cities="cities" save-map="getMap(args)"></test-directive>');
             $compile(elem)($scope);
             $scope.$digest();
             expect(elem.find('span').text()).toBe('jasmine test directive');
         });
         it('访问指令scope', function () {
             var isolatedScope = elem.isolateScope();
+            console.log('cities:',isolatedScope.cities);
+            console.log('orders:',isolatedScope.orders);
+            isolatedScope.saveMap({'args': 'a'});
+            console.log('messsage:',isolatedScope.message);
+            console.log('marginTop:',isolatedScope.marginTop);
             expect(isolatedScope.name).toEqual('name: zlr');
         });
     });

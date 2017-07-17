@@ -28,7 +28,7 @@ define(['app','ngAMD', 'readJSON', 'service/testService'], function (app, angula
         });
         it('service mock data', function () {
             $httpBackend.whenGET('/auth.py').respond(expected);
-            var promise = testService.testAuth($rootScope);
+            var promise = testService.testAuth();
                 promise.then(function(data) {
                     result = data;
                 });
