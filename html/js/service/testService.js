@@ -3,7 +3,7 @@ define(['app'], function (app) {
     app.register.service('TestService',
         function($http,$q) {
             return {
-                testAuth: function($scope){
+                testAuth: function(){
                     var deferred = $q.defer();
                     //http 服务请求
                     $http({method: 'GET', url: '/auth.py'}).then(
@@ -17,7 +17,7 @@ define(['app'], function (app) {
                     //返回http 服务请求的promise
                     return deferred.promise;
                 },
-                testUser: function($scope){
+                testUser: function(){
                     var deferred = $q.defer();
                     //http 服务请求
                     $http({method: 'GET', url: '/user.py'}).then(
